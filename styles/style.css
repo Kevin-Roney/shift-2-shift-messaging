@@ -29,7 +29,9 @@ main {
     align-items: center;
     margin-bottom: calc(var(--footer-height));
 }
-
+img {
+    max-width: 200px;
+}
 section {
     background-color: var(--color5);
     width: 1000px;

@@ -6,7 +6,20 @@ const SUPABASE_URL = 'https://wkkubdeijvrntdmunqer.supabase.co';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 
+export async function uploadImage(myImageFile) {
+    const response = await client
+        .storage
+        .from('my-message-images')
+        .upload(myImageFile.name, myImageFile, {
+            cacheControl: '3600',
+            upsert: false
+        });
+    return checkError(response);
+}
 
+export function makeImageUrl(imageKey) {
+    return `${SUPABASE_URL}/storage/v1/object/public/${imageKey}`;
+}
 
 
 export async function getProfiles() {

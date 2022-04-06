@@ -16,10 +16,12 @@ export function renderMessages(profiles) {
         const fromEl = document.createElement('p');
         const atEl = document.createElement('p');
         const textEl = document.createElement('p');
+        const imgEl = document.createElement('img');
 
         fromEl.textContent = `${message.from_email}`;
         atEl.textContent = formatDate(message.created_at);
         textEl.textContent = message.text;
+        imgEl.src = message.image_url;
 
         fromEl.classList.add('from');
         textEl.classList.add('text');
@@ -27,7 +29,7 @@ export function renderMessages(profiles) {
         messageEl.classList.add('message');
 
         fromContainer.append(fromEl, atEl);
-        messageEl.append(fromContainer, textEl);
+        messageEl.append(fromContainer, textEl, imgEl);
         messagesEl.append(messageEl);
     }
     return messagesEl;

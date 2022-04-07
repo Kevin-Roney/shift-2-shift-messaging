@@ -4,7 +4,7 @@ import { renderMessages, renderRating } from '../render-utils.js';
 
 checkAuth();
 const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
+
 
 const upButton = document.querySelector('.up-vote');
 const downButton = document.querySelector('.down-vote');
@@ -65,11 +65,8 @@ form.addEventListener('submit', async (e) => {
         recipient_id: id,
         image_url: URL
     });
-
     form.reset();
-
     await fetchAndDisplay();
-
 });
 
 logoutButton.addEventListener('click', () => {

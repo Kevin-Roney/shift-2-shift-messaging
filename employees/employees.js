@@ -26,7 +26,7 @@ window.addEventListener('load', async () => {
         anchorEmail.textContent = `${profile.email}`;
         //Once we create employee file, dont forget to lin
         anchorEmail.href = `../employee/?id=${profile.id}`;
-
+        //disable-eslint-next-line
         div.append(anchorEmail, pRating);
 
         employeeListEl.append(div);
